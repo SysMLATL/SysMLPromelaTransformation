@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.4/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.4/SysML#//blocks">
+  <uml:Model xmi:id="__mUVoG_IEeioDaGzS7hsQg" name="Airbag">
+    <ownedRule xmi:type="uml:Constraint" xmi:id="_Oqx2QHLdEei_iNWf8yZGRA" name="Accident2Fired" constrainedElement="_0qbB0HLTEei_iNWf8yZGRA _FtQhoHLdEei_iNWf8yZGRA">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_qgmtoHLdEei_iNWf8yZGRA">
+        <language>OCL</language>
+        <body>Car.checkState() and FASIC.checkState()</body>
+      </specification>
+    </ownedRule>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="__y71UG_IEeioDaGzS7hsQg">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="__zM7EG_IEeioDaGzS7hsQg">
+      <importedPackage xmi:type="uml:Package" href="pathmap://SysML14_LIBRARIES/SysML-Standard-Library.uml#SysML.package_packagedElement_Libraries"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_QC6q8G_JEeioDaGzS7hsQg" name="Car" classifierBehavior="_S2oIsG_JEeioDaGzS7hsQg" isActive="true">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_S2oIsG_JEeioDaGzS7hsQg" name="smCar">
+        <region xmi:type="uml:Region" xmi:id="_T8TXUG_JEeioDaGzS7hsQg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_rhKIwG_JEeioDaGzS7hsQg" source="_XmDsQG_JEeioDaGzS7hsQg" target="_aI74sG_JEeioDaGzS7hsQg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_svYPYG_JEeioDaGzS7hsQg" source="_aI74sG_JEeioDaGzS7hsQg" target="_k0VrcG_JEeioDaGzS7hsQg">
+            <effect xmi:type="uml:Activity" xmi:id="_MIbkYHLUEei_iNWf8yZGRA" name="CrashHappened" node="_VKKDkHLUEei_iNWf8yZGRA _YeapoHLUEei_iNWf8yZGRA _dp8TUHLUEei_iNWf8yZGRA">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_gPjDoHLUEei_iNWf8yZGRA" target="_YeapoHLUEei_iNWf8yZGRA" source="_VKKDkHLUEei_iNWf8yZGRA"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_hGzbwHLUEei_iNWf8yZGRA" target="_dp8TUHLUEei_iNWf8yZGRA" source="_YeapoHLUEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_VKKDkHLUEei_iNWf8yZGRA" name="InitialNode" outgoing="_gPjDoHLUEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:BroadcastSignalAction" xmi:id="_YeapoHLUEei_iNWf8yZGRA" name="BroadcastSignalActionCrashHappened" incoming="_gPjDoHLUEei_iNWf8yZGRA" outgoing="_hGzbwHLUEei_iNWf8yZGRA" signal="_-voMsHLSEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_dp8TUHLUEei_iNWf8yZGRA" name="ActivityFinalNode" incoming="_hGzbwHLUEei_iNWf8yZGRA"/>
+            </effect>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_XmDsQG_JEeioDaGzS7hsQg" name="Initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_aI74sG_JEeioDaGzS7hsQg" name="Running"/>
+          <subvertex xmi:type="uml:State" xmi:id="_k0VrcG_JEeioDaGzS7hsQg" name="Accident"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_0qbB0HLTEei_iNWf8yZGRA" name="checkState" bodyCondition="_7Cwc4HLTEei_iNWf8yZGRA" isQuery="true">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_7Cwc4HLTEei_iNWf8yZGRA" constrainedElement="_k0VrcG_JEeioDaGzS7hsQg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_7Cwc4XLTEei_iNWf8yZGRA">
+            <language>OCL</language>
+            <body>self.oclIsInState(Accident)</body>
+          </specification>
+        </ownedRule>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_uwKbYG_JEeioDaGzS7hsQg" name="MainSensor" classifierBehavior="_ydgP0G_JEeioDaGzS7hsQg" isActive="true">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ydgP0G_JEeioDaGzS7hsQg" name="smMainSensor">
+        <region xmi:type="uml:Region" xmi:id="_zpPDIG_JEeioDaGzS7hsQg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_IYLXYG_KEeioDaGzS7hsQg" source="_18YxgG_JEeioDaGzS7hsQg" target="_3ZxVgG_JEeioDaGzS7hsQg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_JPFxQG_KEeioDaGzS7hsQg" source="_3ZxVgG_JEeioDaGzS7hsQg" target="_-hMrMG_JEeioDaGzS7hsQg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_w-XKUHLUEei_iNWf8yZGRA" event="_BP8NUHLTEei_iNWf8yZGRA"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_J8ZjMG_KEeioDaGzS7hsQg" source="_-hMrMG_JEeioDaGzS7hsQg" target="_-hMrMG_JEeioDaGzS7hsQg">
+            <effect xmi:type="uml:Activity" xmi:id="_8bSgoHLUEei_iNWf8yZGRA" name="MainSensorCrashDetection" node="_ilWA4HLVEei_iNWf8yZGRA _mZEKIHLVEei_iNWf8yZGRA _r95EoHLVEei_iNWf8yZGRA">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_wUSdIHLVEei_iNWf8yZGRA" target="_mZEKIHLVEei_iNWf8yZGRA" source="_ilWA4HLVEei_iNWf8yZGRA"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_xTX7kHLVEei_iNWf8yZGRA" target="_r95EoHLVEei_iNWf8yZGRA" source="_mZEKIHLVEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_ilWA4HLVEei_iNWf8yZGRA" name="InitialNode" outgoing="_wUSdIHLVEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:SendSignalAction" xmi:id="_mZEKIHLVEei_iNWf8yZGRA" name="SendMainSensorCrashDetection" incoming="_wUSdIHLVEei_iNWf8yZGRA" outgoing="_xTX7kHLVEei_iNWf8yZGRA" signal="_DJAnwHLTEei_iNWf8yZGRA">
+                <target xmi:type="uml:InputPin" xmi:id="_oqKDAHLVEei_iNWf8yZGRA" name="target" type="_XTXH0G_LEeioDaGzS7hsQg">
+                  <upperBound xmi:type="uml:LiteralInteger" xmi:id="_8EWx4HLVEei_iNWf8yZGRA" value="2"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oqKDAXLVEei_iNWf8yZGRA" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oqKDAnLVEei_iNWf8yZGRA" value="1"/>
+                </target>
+              </node>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_r95EoHLVEei_iNWf8yZGRA" name="ActivityFinalNode" incoming="_xTX7kHLVEei_iNWf8yZGRA"/>
+            </effect>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_18YxgG_JEeioDaGzS7hsQg" name="Initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_3ZxVgG_JEeioDaGzS7hsQg" name="Idle"/>
+          <subvertex xmi:type="uml:State" xmi:id="_-hMrMG_JEeioDaGzS7hsQg" name="CrashDetected"/>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_SrjEoG_KEeioDaGzS7hsQg" name="SafetySensor" classifierBehavior="_X7FEkG_KEeioDaGzS7hsQg" isActive="true">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_X7FEkG_KEeioDaGzS7hsQg" name="smSafetySensor">
+        <region xmi:type="uml:Region" xmi:id="_ZKW7IG_KEeioDaGzS7hsQg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_Oco-wG_LEeioDaGzS7hsQg" source="_b2o7MG_KEeioDaGzS7hsQg" target="_EBnKUG_LEeioDaGzS7hsQg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_PgeaUG_LEeioDaGzS7hsQg" source="_EBnKUG_LEeioDaGzS7hsQg" target="_HuYXAG_LEeioDaGzS7hsQg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_E1X7kHLWEei_iNWf8yZGRA" event="_BP8NUHLTEei_iNWf8yZGRA"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_TJ8bYG_LEeioDaGzS7hsQg" source="_HuYXAG_LEeioDaGzS7hsQg" target="_HuYXAG_LEeioDaGzS7hsQg">
+            <effect xmi:type="uml:Activity" xmi:id="_LhRy4HLWEei_iNWf8yZGRA" name="SafetySensorCrashDetection" node="_RbaPAHLWEei_iNWf8yZGRA _U3i-sHLWEei_iNWf8yZGRA _FAbqIHLYEei_iNWf8yZGRA">
+              <edge xmi:type="uml:ControlFlow" xmi:id="_IOUicHLYEei_iNWf8yZGRA" target="_U3i-sHLWEei_iNWf8yZGRA" source="_RbaPAHLWEei_iNWf8yZGRA"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_JuvzYHLYEei_iNWf8yZGRA" target="_FAbqIHLYEei_iNWf8yZGRA" source="_U3i-sHLWEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_RbaPAHLWEei_iNWf8yZGRA" name="InitialNode" outgoing="_IOUicHLYEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:SendSignalAction" xmi:id="_U3i-sHLWEei_iNWf8yZGRA" name="SendSafetySensorCrashDetection" incoming="_IOUicHLYEei_iNWf8yZGRA" outgoing="_JuvzYHLYEei_iNWf8yZGRA" signal="_ISNWMHLTEei_iNWf8yZGRA">
+                <target xmi:type="uml:InputPin" xmi:id="_WPdM0HLWEei_iNWf8yZGRA" name="target" type="_XTXH0G_LEeioDaGzS7hsQg">
+                  <upperBound xmi:type="uml:LiteralInteger" xmi:id="_MgosMHLYEei_iNWf8yZGRA" value="2"/>
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WPdM0XLWEei_iNWf8yZGRA" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WPdM0nLWEei_iNWf8yZGRA" value="1"/>
+                </target>
+              </node>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_FAbqIHLYEei_iNWf8yZGRA" name="ActivityFinalNode" incoming="_JuvzYHLYEei_iNWf8yZGRA"/>
+            </effect>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_b2o7MG_KEeioDaGzS7hsQg" name="Initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_EBnKUG_LEeioDaGzS7hsQg" name="Idle"/>
+          <subvertex xmi:type="uml:State" xmi:id="_HuYXAG_LEeioDaGzS7hsQg" name="CrashDetected"/>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_XTXH0G_LEeioDaGzS7hsQg" name="MicroController" classifierBehavior="_ZiAJoG_LEeioDaGzS7hsQg" isActive="true">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ZiAJoG_LEeioDaGzS7hsQg" name="smMicroController">
+        <region xmi:type="uml:Region" xmi:id="_ahw9gG_LEeioDaGzS7hsQg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_5qJVUG_MEeioDaGzS7hsQg" source="_f46oYG_LEeioDaGzS7hsQg" target="_sxKGIG_LEeioDaGzS7hsQg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_Wt4KQG_NEeioDaGzS7hsQg" source="_cxwqMG_LEeioDaGzS7hsQg" target="_f46oYG_LEeioDaGzS7hsQg"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_cxwqMG_LEeioDaGzS7hsQg" name="Initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_f46oYG_LEeioDaGzS7hsQg" name="Idle"/>
+          <subvertex xmi:type="uml:State" xmi:id="_sxKGIG_LEeioDaGzS7hsQg" name="EvaluateCrash">
+            <region xmi:type="uml:Region" xmi:id="_0jMfEG_LEeioDaGzS7hsQg" name="Region1">
+              <transition xmi:type="uml:Transition" xmi:id="_jRWHUG_MEeioDaGzS7hsQg" source="_gBanoG_MEeioDaGzS7hsQg" target="_0jTMwm_LEeioDaGzS7hsQg"/>
+              <transition xmi:type="uml:Transition" xmi:id="_kesEMG_MEeioDaGzS7hsQg" guard="_hqESIHLaEei_iNWf8yZGRA" source="_0jTMwm_LEeioDaGzS7hsQg" target="_8ePDAG_LEeioDaGzS7hsQg">
+                <ownedRule xmi:type="uml:Constraint" xmi:id="_hqESIHLaEei_iNWf8yZGRA">
+                  <specification xmi:type="uml:OpaqueExpression" xmi:id="_hqESIXLaEei_iNWf8yZGRA">
+                    <language>OCL</language>
+                    <body>MicroController.mainSensorCritical >= 2</body>
+                  </specification>
+                </ownedRule>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_lixXYG_MEeioDaGzS7hsQg" guard="_ak8CgHLaEei_iNWf8yZGRA" source="_0jTMwm_LEeioDaGzS7hsQg" target="_3jrNgG_LEeioDaGzS7hsQg">
+                <ownedRule xmi:type="uml:Constraint" xmi:id="_ak8CgHLaEei_iNWf8yZGRA">
+                  <specification xmi:type="uml:OpaqueExpression" xmi:id="_ak8CgXLaEei_iNWf8yZGRA">
+                    <language>OCL</language>
+                    <body>MicroController.mainSensorCritical &lt; 2</body>
+                  </specification>
+                </ownedRule>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_mb5XwG_MEeioDaGzS7hsQg" source="_0jTMwm_LEeioDaGzS7hsQg" target="_0jTMwm_LEeioDaGzS7hsQg">
+                <effect xmi:type="uml:OpaqueBehavior" xmi:id="_RsQnEHLZEei_iNWf8yZGRA">
+                  <language>Natural language</language>
+                  <body>MicroController.mainSensorCritical = MicroController.mainSensorCritical + 1</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_eegxkHLZEei_iNWf8yZGRA" event="_FuI28HLTEei_iNWf8yZGRA"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_qqxzAG_MEeioDaGzS7hsQg" source="_0jTMwm_LEeioDaGzS7hsQg" target="_0jTMwm_LEeioDaGzS7hsQg">
+                <effect xmi:type="uml:OpaqueBehavior" xmi:id="_YvPhoHLZEei_iNWf8yZGRA">
+                  <language>Natural language</language>
+                  <body>MicroController.criticalCrashLevel = MicroController.criticalCrashLevel + 1</body>
+                </effect>
+                <trigger xmi:type="uml:Trigger" xmi:id="_gBSL4HLZEei_iNWf8yZGRA" event="_KqSA0HLTEei_iNWf8yZGRA"/>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_xZ2TEG_MEeioDaGzS7hsQg" guard="_qoSxYHLaEei_iNWf8yZGRA" source="_8ePDAG_LEeioDaGzS7hsQg" target="_ACfz8G_MEeioDaGzS7hsQg">
+                <ownedRule xmi:type="uml:Constraint" xmi:id="_qoSxYHLaEei_iNWf8yZGRA">
+                  <specification xmi:type="uml:OpaqueExpression" xmi:id="_qoSxYXLaEei_iNWf8yZGRA">
+                    <language>OCL</language>
+                    <body>MicroController.criticalCrashLevel >= 2</body>
+                  </specification>
+                </ownedRule>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_zXz0kG_MEeioDaGzS7hsQg" guard="_mk83wHLaEei_iNWf8yZGRA" source="_8ePDAG_LEeioDaGzS7hsQg" target="_3jrNgG_LEeioDaGzS7hsQg">
+                <ownedRule xmi:type="uml:Constraint" xmi:id="_mk83wHLaEei_iNWf8yZGRA">
+                  <specification xmi:type="uml:OpaqueExpression" xmi:id="_mk83wXLaEei_iNWf8yZGRA">
+                    <language>OCL</language>
+                    <body>MicroController.criticalCrashLevel &lt; 2</body>
+                  </specification>
+                </ownedRule>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_3oMEoG_MEeioDaGzS7hsQg" source="_3jrNgG_LEeioDaGzS7hsQg" target="_f46oYG_LEeioDaGzS7hsQg"/>
+              <transition xmi:type="uml:Transition" xmi:id="_9CqJQG_MEeioDaGzS7hsQg" source="_ACfz8G_MEeioDaGzS7hsQg" target="_JLL2wG_MEeioDaGzS7hsQg">
+                <effect xmi:type="uml:Activity" xmi:id="_5-CMUHLaEei_iNWf8yZGRA" name="actArmFASIC" node="_JPx4EHLbEei_iNWf8yZGRA _Ndq00HLbEei_iNWf8yZGRA _RoPX0HLbEei_iNWf8yZGRA">
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_T2EhUHLbEei_iNWf8yZGRA" target="_Ndq00HLbEei_iNWf8yZGRA" source="_JPx4EHLbEei_iNWf8yZGRA"/>
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_UiSHEHLbEei_iNWf8yZGRA" target="_RoPX0HLbEei_iNWf8yZGRA" source="_Ndq00HLbEei_iNWf8yZGRA"/>
+                  <node xmi:type="uml:InitialNode" xmi:id="_JPx4EHLbEei_iNWf8yZGRA" name="InitialNode" outgoing="_T2EhUHLbEei_iNWf8yZGRA"/>
+                  <node xmi:type="uml:SendSignalAction" xmi:id="_Ndq00HLbEei_iNWf8yZGRA" name="SendArmFASIC" incoming="_T2EhUHLbEei_iNWf8yZGRA" outgoing="_UiSHEHLbEei_iNWf8yZGRA" signal="_bIDa0HLTEei_iNWf8yZGRA">
+                    <target xmi:type="uml:InputPin" xmi:id="_PM3hkHLbEei_iNWf8yZGRA" name="target" type="_4BeccG_OEeioDaGzS7hsQg">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PM3hkXLbEei_iNWf8yZGRA" value="1"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PM3hknLbEei_iNWf8yZGRA" value="1"/>
+                    </target>
+                  </node>
+                  <node xmi:type="uml:ActivityFinalNode" xmi:id="_RoPX0HLbEei_iNWf8yZGRA" name="ActivityFinalNode" incoming="_UiSHEHLbEei_iNWf8yZGRA"/>
+                </effect>
+              </transition>
+              <subvertex xmi:type="uml:State" xmi:id="_0jTMwm_LEeioDaGzS7hsQg" name="Evaluation"/>
+              <subvertex xmi:type="uml:State" xmi:id="_3jrNgG_LEeioDaGzS7hsQg" name="EvaluationDone"/>
+              <subvertex xmi:type="uml:State" xmi:id="_8ePDAG_LEeioDaGzS7hsQg" name="SensorsCritical"/>
+              <subvertex xmi:type="uml:State" xmi:id="_ACfz8G_MEeioDaGzS7hsQg" name="Crash"/>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_gBanoG_MEeioDaGzS7hsQg" name="Initial"/>
+            </region>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_JLL2wG_MEeioDaGzS7hsQg" name="Crash">
+            <region xmi:type="uml:Region" xmi:id="_BOqPoW_NEeioDaGzS7hsQg" name="Region1">
+              <transition xmi:type="uml:Transition" xmi:id="_P3TUAG_NEeioDaGzS7hsQg" source="_BOuhFm_NEeioDaGzS7hsQg" target="_DK7IAG_NEeioDaGzS7hsQg"/>
+              <transition xmi:type="uml:Transition" xmi:id="_YyH58G_NEeioDaGzS7hsQg" source="_DK7IAG_NEeioDaGzS7hsQg" target="_Gcat8G_NEeioDaGzS7hsQg">
+                <effect xmi:type="uml:Activity" xmi:id="_aBlBUHLbEei_iNWf8yZGRA" name="FireFASIC" node="_hG9voHLbEei_iNWf8yZGRA _i7_XkHLbEei_iNWf8yZGRA _ma4gUHLbEei_iNWf8yZGRA">
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_pBqVUHLbEei_iNWf8yZGRA" target="_i7_XkHLbEei_iNWf8yZGRA" source="_hG9voHLbEei_iNWf8yZGRA"/>
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_p-uagHLbEei_iNWf8yZGRA" target="_ma4gUHLbEei_iNWf8yZGRA" source="_i7_XkHLbEei_iNWf8yZGRA"/>
+                  <node xmi:type="uml:InitialNode" xmi:id="_hG9voHLbEei_iNWf8yZGRA" name="InitialNode" outgoing="_pBqVUHLbEei_iNWf8yZGRA"/>
+                  <node xmi:type="uml:SendSignalAction" xmi:id="_i7_XkHLbEei_iNWf8yZGRA" name="SendFireFASIC" incoming="_pBqVUHLbEei_iNWf8yZGRA" outgoing="_p-uagHLbEei_iNWf8yZGRA" signal="_hApl4HLTEei_iNWf8yZGRA">
+                    <target xmi:type="uml:InputPin" xmi:id="_kW3aIHLbEei_iNWf8yZGRA" name="target" type="_4BeccG_OEeioDaGzS7hsQg">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kW3aIXLbEei_iNWf8yZGRA" value="1"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kW3aInLbEei_iNWf8yZGRA" value="1"/>
+                    </target>
+                  </node>
+                  <node xmi:type="uml:ActivityFinalNode" xmi:id="_ma4gUHLbEei_iNWf8yZGRA" name="ActivityFinalNode" incoming="_p-uagHLbEei_iNWf8yZGRA"/>
+                </effect>
+              </transition>
+              <transition xmi:type="uml:Transition" xmi:id="_Ztxp4G_NEeioDaGzS7hsQg" source="_Gcat8G_NEeioDaGzS7hsQg" target="_LksPUG_NEeioDaGzS7hsQg">
+                <effect xmi:type="uml:Activity" xmi:id="_tnMWAHLbEei_iNWf8yZGRA" name="EnableFET" node="_xtmKsHLbEei_iNWf8yZGRA _03KjsHLbEei_iNWf8yZGRA _4pUmsHLbEei_iNWf8yZGRA">
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_6_pk4HLbEei_iNWf8yZGRA" target="_03KjsHLbEei_iNWf8yZGRA" source="_xtmKsHLbEei_iNWf8yZGRA"/>
+                  <edge xmi:type="uml:ControlFlow" xmi:id="_7zMhsHLbEei_iNWf8yZGRA" target="_4pUmsHLbEei_iNWf8yZGRA" source="_03KjsHLbEei_iNWf8yZGRA"/>
+                  <node xmi:type="uml:InitialNode" xmi:id="_xtmKsHLbEei_iNWf8yZGRA" name="InitialNode" outgoing="_6_pk4HLbEei_iNWf8yZGRA"/>
+                  <node xmi:type="uml:SendSignalAction" xmi:id="_03KjsHLbEei_iNWf8yZGRA" name="SendEnableFET" incoming="_6_pk4HLbEei_iNWf8yZGRA" outgoing="_7zMhsHLbEei_iNWf8yZGRA" signal="_Nh9YkHLTEei_iNWf8yZGRA">
+                    <target xmi:type="uml:InputPin" xmi:id="_2W_XsHLbEei_iNWf8yZGRA" name="target" type="_pPXIcG_NEeioDaGzS7hsQg">
+                      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2W_XsXLbEei_iNWf8yZGRA" value="1"/>
+                      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2W_XsnLbEei_iNWf8yZGRA" value="1"/>
+                    </target>
+                  </node>
+                  <node xmi:type="uml:ActivityFinalNode" xmi:id="_4pUmsHLbEei_iNWf8yZGRA" name="ActivityFinalNode" incoming="_7zMhsHLbEei_iNWf8yZGRA"/>
+                </effect>
+              </transition>
+              <subvertex xmi:type="uml:Pseudostate" xmi:id="_BOuhFm_NEeioDaGzS7hsQg" name="Initial"/>
+              <subvertex xmi:type="uml:State" xmi:id="_DK7IAG_NEeioDaGzS7hsQg" name="ArmFasic"/>
+              <subvertex xmi:type="uml:State" xmi:id="_Gcat8G_NEeioDaGzS7hsQg" name="FireFasic"/>
+              <subvertex xmi:type="uml:State" xmi:id="_LksPUG_NEeioDaGzS7hsQg" name="EnableFet"/>
+            </region>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_pPXIcG_NEeioDaGzS7hsQg" name="FET" classifierBehavior="_q8xFcG_NEeioDaGzS7hsQg" isActive="true">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_q8xFcG_NEeioDaGzS7hsQg" name="smFET">
+        <region xmi:type="uml:Region" xmi:id="_reSeIG_NEeioDaGzS7hsQg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_woA7kG_OEeioDaGzS7hsQg" source="_l4JfkG_OEeioDaGzS7hsQg" target="_oixSwG_OEeioDaGzS7hsQg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_xVo2kG_OEeioDaGzS7hsQg" source="_oixSwG_OEeioDaGzS7hsQg" target="_snsgwG_OEeioDaGzS7hsQg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_MQhPwHLcEei_iNWf8yZGRA" event="_Y5VggHLTEei_iNWf8yZGRA"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_yAUyUG_OEeioDaGzS7hsQg" source="_snsgwG_OEeioDaGzS7hsQg" target="_snsgwG_OEeioDaGzS7hsQg">
+            <effect xmi:type="uml:Activity" xmi:id="_TPxg4HLcEei_iNWf8yZGRA" name="FETPoweredOn" node="_XkTRIHLcEei_iNWf8yZGRA _Z-ie8HLcEei_iNWf8yZGRA _pweGoHLcEei_iNWf8yZGRA">
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_dhlH4HLcEei_iNWf8yZGRA" name="FETPoweredOn"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_tiOhAHLcEei_iNWf8yZGRA" target="_Z-ie8HLcEei_iNWf8yZGRA" source="_XkTRIHLcEei_iNWf8yZGRA"/>
+              <edge xmi:type="uml:ControlFlow" xmi:id="_uQvz4HLcEei_iNWf8yZGRA" target="_pweGoHLcEei_iNWf8yZGRA" source="_Z-ie8HLcEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:InitialNode" xmi:id="_XkTRIHLcEei_iNWf8yZGRA" name="InitialNode" outgoing="_tiOhAHLcEei_iNWf8yZGRA"/>
+              <node xmi:type="uml:CallOperationAction" xmi:id="_Z-ie8HLcEei_iNWf8yZGRA" name="FETPoweredOn" incoming="_tiOhAHLcEei_iNWf8yZGRA" outgoing="_uQvz4HLcEei_iNWf8yZGRA" operation="_dhlH4HLcEei_iNWf8yZGRA">
+                <target xmi:type="uml:InputPin" xmi:id="_dh3bwHLcEei_iNWf8yZGRA" name="target" type="_TPxg4HLcEei_iNWf8yZGRA">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dh3bwXLcEei_iNWf8yZGRA" value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dh3bwnLcEei_iNWf8yZGRA" value="1"/>
+                </target>
+              </node>
+              <node xmi:type="uml:ActivityFinalNode" xmi:id="_pweGoHLcEei_iNWf8yZGRA" name="ActivityFinalNode" incoming="_uQvz4HLcEei_iNWf8yZGRA"/>
+            </effect>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_l4JfkG_OEeioDaGzS7hsQg" name="Initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_oixSwG_OEeioDaGzS7hsQg" name="FETDisabled"/>
+          <subvertex xmi:type="uml:State" xmi:id="_snsgwG_OEeioDaGzS7hsQg" name="FETEnabled"/>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_4BeccG_OEeioDaGzS7hsQg" name="FASIC" classifierBehavior="_7VvpkG_OEeioDaGzS7hsQg" isActive="true">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_7VvpkG_OEeioDaGzS7hsQg" name="smFASIC">
+        <region xmi:type="uml:Region" xmi:id="_8Sry8G_OEeioDaGzS7hsQg" name="Region1">
+          <transition xmi:type="uml:Transition" xmi:id="_Qx7eUG_PEeioDaGzS7hsQg" source="__NpIMG_OEeioDaGzS7hsQg" target="_CraPkG_PEeioDaGzS7hsQg"/>
+          <transition xmi:type="uml:Transition" xmi:id="_RiIMMG_PEeioDaGzS7hsQg" source="_CraPkG_PEeioDaGzS7hsQg" target="_GUMUIG_PEeioDaGzS7hsQg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_8qUhgHLcEei_iNWf8yZGRA" event="_evajEHLTEei_iNWf8yZGRA"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_SXdRsG_PEeioDaGzS7hsQg" source="_GUMUIG_PEeioDaGzS7hsQg" target="_IluR4G_PEeioDaGzS7hsQg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_-XBT4HLcEei_iNWf8yZGRA" event="_jIT18HLTEei_iNWf8yZGRA"/>
+          </transition>
+          <transition xmi:type="uml:Transition" xmi:id="_Ta32gG_PEeioDaGzS7hsQg" source="_IluR4G_PEeioDaGzS7hsQg" target="_Lj228G_PEeioDaGzS7hsQg">
+            <trigger xmi:type="uml:Trigger" xmi:id="_AxcH4HLdEei_iNWf8yZGRA" event="_skZV4HLTEei_iNWf8yZGRA"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="__NpIMG_OEeioDaGzS7hsQg" name="Initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="_CraPkG_PEeioDaGzS7hsQg" name="Idle"/>
+          <subvertex xmi:type="uml:State" xmi:id="_GUMUIG_PEeioDaGzS7hsQg" name="Armed"/>
+          <subvertex xmi:type="uml:State" xmi:id="_IluR4G_PEeioDaGzS7hsQg" name="Fire"/>
+          <subvertex xmi:type="uml:State" xmi:id="_Lj228G_PEeioDaGzS7hsQg" name="Fired"/>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_FtQhoHLdEei_iNWf8yZGRA" name="checkState" bodyCondition="_K_3DsHLdEei_iNWf8yZGRA" isQuery="true">
+        <ownedRule xmi:type="uml:Constraint" xmi:id="_K_3DsHLdEei_iNWf8yZGRA" constrainedElement="_Lj228G_PEeioDaGzS7hsQg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_K_3DsXLdEei_iNWf8yZGRA">
+            <language>OCL</language>
+            <body>self.oclIsInState(Fired)</body>
+          </specification>
+        </ownedRule>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_-voMsHLSEei_iNWf8yZGRA" name="CrashHappened"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_BP8NUHLTEei_iNWf8yZGRA" name="CrashHappened" signal="_-voMsHLSEei_iNWf8yZGRA"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_DJAnwHLTEei_iNWf8yZGRA" name="MainSensorCrashDetection"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_FuI28HLTEei_iNWf8yZGRA" name="MainSensorCrashDetection" signal="_DJAnwHLTEei_iNWf8yZGRA"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_ISNWMHLTEei_iNWf8yZGRA" name="SafetySensorCrashDetection"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_KqSA0HLTEei_iNWf8yZGRA" name="SafetySensorCrashDetection" signal="_ISNWMHLTEei_iNWf8yZGRA"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_Nh9YkHLTEei_iNWf8yZGRA" name="EnableFET"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_Y5VggHLTEei_iNWf8yZGRA" name="EnableFET" signal="_Nh9YkHLTEei_iNWf8yZGRA"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_bIDa0HLTEei_iNWf8yZGRA" name="ArmFASIC"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_evajEHLTEei_iNWf8yZGRA" name="ArmFASIC" signal="_bIDa0HLTEei_iNWf8yZGRA"/>
+    <packagedElement xmi:type="uml:Signal" xmi:id="_hApl4HLTEei_iNWf8yZGRA" name="FireFASIC"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_jIT18HLTEei_iNWf8yZGRA" name="FireFASIC" signal="_hApl4HLTEei_iNWf8yZGRA"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_skZV4HLTEei_iNWf8yZGRA" name="FETPoweredOn"/>
+    <packagedElement xmi:type="uml:LiteralInteger" xmi:id="_mRXO4GgmEemQaLO95AAq_A" name="criticalCrashLevel"/>
+    <packagedElement xmi:type="uml:LiteralInteger" xmi:id="_mRXO4GgmEemQaLO95AAq_A" name="mainSensorCritical"/>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__s1NUG_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__s5ewG_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y0gkG_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y1HoG_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//activities"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Activities"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y3j4G_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y3j4W_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//allocations"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Allocations"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y4K8G_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y4K8W_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//blocks"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Blocks"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y4yAG_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y4yAW_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//constraintblocks"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_ConstraintBlocks"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y4yAm_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y5ZEG_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//deprecatedelements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_DeprecatedElements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y5ZEW_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y5ZEm_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//modelelements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_ModelElements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y6AIG_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y6AIW_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//portsandflows"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Ports_u0026Flows"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y6AIm_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y6nMG_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.4/SysML#//requirements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML14_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Requirements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="__y6nMW_IEeioDaGzS7hsQg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="__y6nMm_IEeioDaGzS7hsQg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Blocks:Block xmi:id="_QL2kgG_JEeioDaGzS7hsQg" base_Class="_QC6q8G_JEeioDaGzS7hsQg"/>
+  <Blocks:Block xmi:id="_uwS-QG_JEeioDaGzS7hsQg" base_Class="_uwKbYG_JEeioDaGzS7hsQg"/>
+  <Blocks:Block xmi:id="_SrrAcG_KEeioDaGzS7hsQg" base_Class="_SrjEoG_KEeioDaGzS7hsQg"/>
+  <Blocks:Block xmi:id="_XTd1gG_LEeioDaGzS7hsQg" base_Class="_XTXH0G_LEeioDaGzS7hsQg"/>
+  <Blocks:Block xmi:id="_pPedMG_NEeioDaGzS7hsQg" base_Class="_pPXIcG_NEeioDaGzS7hsQg"/>
+  <Blocks:Block xmi:id="_4BkjEG_OEeioDaGzS7hsQg" base_Class="_4BeccG_OEeioDaGzS7hsQg"/>
+</xmi:XMI>
