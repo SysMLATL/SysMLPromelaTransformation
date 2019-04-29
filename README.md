@@ -18,6 +18,7 @@ How to run:
 
 Requirements:
 1. JDK 8 or higher
+2. Papyrus IDE generated SysML model
 
 
 SysML is a vast language, we currently handle only a subset of it.
