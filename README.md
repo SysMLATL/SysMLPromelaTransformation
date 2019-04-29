@@ -24,4 +24,5 @@ Elements handled:
   1.1. states (simple and composite(only one level of substates))
   1.2. transitions (All activities or guards should be on transitions and not states)
   1.3. events for communication (Signal and call events handled)
+  ```
 2. Action diagram (only as an activity of a transition) (should only contain one node which describes the type of communication taking place)
